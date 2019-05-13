@@ -1,0 +1,23 @@
+<h1>Alojamientos</h1>
+
+<table>
+  <tr>
+    <th>Alojamiento nro.</th>
+    <th>Direccion</th>
+    <th>Localidad</th>
+    <th>Provincia</th>
+    <th></th>
+  </tr>
+
+  <% @lodgings.each do |lodging| %>
+    <tr>
+      <td><%= lodging.id %></td>
+      <td><%= lodging.address %></td>
+      <td><%= lodging.city %></td>
+      <td><%= lodging.province %></td>
+      <td><%= link_to 'Ver detalle', lodging_path(lodging) %></td>
+      <td><%= link_to 'Editar', edit_lodging_path(lodging) %></td>
+      <td><%= link_to 'Eliminar', lodging_path(lodging), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

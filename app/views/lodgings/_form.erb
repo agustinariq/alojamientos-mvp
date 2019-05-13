@@ -1,0 +1,25 @@
+<%= form_with(model: @lodging) do |form| %>
+  <p>
+    <%= form.label :address, 'Direccion' %><br>
+    <%= form.text_field :address %>
+  </p>
+  <p>
+    <%= form.label :city, 'Localidad' %><br>
+    <%= form.text_field :city %>
+  </p>
+  <p>
+    <%= form.label :province, 'Provincia' %><br>
+    <%= form.text_field :province %>
+  </p>
+  <p>
+    <%= form.label :lodging_type, 'Tipo' %><br>
+    <%= form.select :lodging_type, ['Hotel', 'Posada', 'Cabana', 'Otro']  %>
+  </p>
+  <p>
+    <%= form.label :category, 'Categoria' %><br>
+    <%= form.select :category, [1, 2, 3, 4, 5]  %>
+  </p>
+  <p>
+    <%= form.submit 'Guardar' %>
+  </p>
+<% end %>
