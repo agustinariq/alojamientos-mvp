@@ -1,24 +1,45 @@
-<h1>Alojamientos</h1>
+<div class="container-fluid">
 
-<div><%= link_to 'Crear alojamiento', new_lodging_path %></div>
-<table>
-  <tr>
-    <th>Alojamiento nro.</th>
-    <th>Direccion</th>
-    <th>Localidad</th>
-    <th>Provincia</th>
-    <th></th>
-  </tr>
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Alojamientos</h1>
 
-  <% @lodgings.each do |lodging| %>
-    <tr>
-      <td><%= lodging.id %></td>
-      <td><%= lodging.address %></td>
-      <td><%= lodging.city %></td>
-      <td><%= lodging.province %></td>
-      <td><%= link_to 'Ver detalle', lodging_path(lodging) %></td>
-      <td><%= link_to 'Editar', edit_lodging_path(lodging) %></td>
-      <td><%= link_to 'Eliminar', lodging_path(lodging), method: :delete %></td>
-    </tr>
-  <% end %>
-</table>
+  <div class="my-2">
+    <div class="btn btn-primary btn-icon-split">
+      <%= link_to 'Crear alojamiento', new_lodging_path, style: 'color: white' %>
+    </div>
+  </div>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+          <tr>
+            <th>Alojamiento nro.</th>
+            <th>Direccion</th>
+            <th>Localidad</th>
+            <th>Provincia</th>
+            <% 3.times do %>
+              <th></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody>
+          <% @lodgings.each do |lodging| %>
+            <tr>
+              <td><%= lodging.id %></td>
+              <td><%= lodging.address %></td>
+              <td><%= lodging.city %></td>
+              <td><%= lodging.province %></td>
+              <td><%= link_to 'Ver detalle', lodging_path(lodging), class: 'btn btn-primary btn-icon-split' %></td>
+              <td><%= link_to 'Editar', edit_lodging_path(lodging), class: 'btn btn-primary btn-icon-split' %></td>
+              <td><%= link_to 'Eliminar', lodging_path(lodging), method: :delete, class: 'btn btn-primary btn-icon-split' %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
